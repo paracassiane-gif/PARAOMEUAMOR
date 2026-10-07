@@ -1,297 +1,407 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta
-      name="description"
-      content="Um Livro Chamado Nós — site memorativo para 6 meses de história e amor."
-    />
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Um Livro Chamado Nós — 6 meses de uma história que começou antes de sabermos que era uma história.">
     <title>Um Livro Chamado Nós</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Montserrat:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700;800;900&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" href="styles.css" />
-  </head>
-  <body>
-    <div class="page-noise"></div>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800;900&family=Montserrat:wght@400;500;600;700;800&family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400;1,500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="noise"></div>
 
-    <header class="site-header">
-      <div class="brand">UM LIVRO CHAMADO NÓS</div>
-      <nav>
-        <a href="#inicio">Início</a>
-        <a href="#historia">História</a>
-        <a href="#memorias">Memórias</a>
-        <a href="#carta">Carta</a>
-      </nav>
+    <!-- LOADER / OPENING SCREEN -->
+    <div id="loader" class="loader">
+        <div class="loader__content">
+            <p class="eyebrow">Weslley & Cassiane</p>
+            <h1>Um Livro Chamado Nós</h1>
+            <div class="loader__dates">
+                <span>06.04.2026</span>
+                <span>06.10.2026</span>
+            </div>
+            <p class="loader__subtitle">Uma história que começou antes de sabermos que era uma história.</p>
+            <button class="btn btn--primary" id="enterBtn">ABRIR</button>
+        </div>
+    </div>
+
+    <!-- HEADER/TOPBAR -->
+    <header class="topbar">
+        <div class="topbar__inner">
+            <span class="brand">UM LIVRO CHAMADO NÓS</span>
+            <nav class="nav">
+                <a href="#inicio">Início</a>
+                <a href="#antes">Antes</a>
+                <a href="#reencontro">Reencontro</a>
+                <a href="#distancia">Distância</a>
+                <a href="#carta">Carta</a>
+            </nav>
+        </div>
     </header>
 
     <main>
-      <section id="inicio" class="hero reveal">
-        <div class="hero-overlay"></div>
-        <div class="hero-content">
-          <p class="eyebrow">Weslley &amp; Cassiane</p>
-          <h1>UM LIVRO CHAMADO NÓS</h1>
-          <div class="dates">
-            <span>06.04.2026</span>
-            <span class="divider">—</span>
-            <span>06.10.2026</span>
-          </div>
-          <p class="subtitle">
-            Uma história que começou antes de sabermos que era uma história.
-          </p>
-          <a href="#historia" class="btn-primary">ABRIR</a>
-        </div>
-      </section>
+        <!-- HERO / OPENING -->
+        <section id="inicio" class="hero reveal">
+            <div class="hero__content">
+                <p class="eyebrow">06.04.2026 — 06.10.2026</p>
+                <h1>6 MESES</h1>
+                <p class="hero__quote">
+                    "Seis meses parecem pouco quando comparados a uma vida inteira.<br><br>
+                    Mas, quando eu olho para tudo o que aconteceu dentro desses seis meses...<br>
+                    parece que nós vivemos uma história inteira."
+                </p>
+                <p class="hero__quote hero__quote--soft">
+                    "Mas, antes de existir o nosso 'nós'...<br>
+                    existiam duas histórias."
+                </p>
+                <a href="#antes" class="btn btn--primary">COMEÇAR</a>
+            </div>
+        </section>
 
-      <section id="historia" class="story-intro reveal">
-        <div class="section-heading">
-          <p class="eyebrow accent">Antes de nós</p>
-          <h2>Antes de você existir na minha vida, eu já era alguém.</h2>
-        </div>
+        <!-- ANTES DE NÓS -->
+        <section id="antes" class="story reveal">
+            <div class="container container--narrow">
+                <p class="eyebrow eyebrow--accent">Antes de nós</p>
+                <h2>Antes de você, eu já existia.</h2>
+                <p>
+                    Eu tinha minha rotina, meus sonhos, minhas inseguranças, minha fé, minha família, meus amigos 
+                    e todas as coisas que faziam parte da minha vida.
+                </p>
+                <p>
+                    Mas eu ainda estava tentando descobrir quem eu era.
+                </p>
+            </div>
+        </section>
 
-        <div class="story-text">
-          <p>
-            Eu era inseguro, tímido, muitas vezes achava que não era bom o
-            bastante. Dizia que gostava de ficar sozinho, talvez porque era mais
-            fácil fingir que não queria ser escolhido do que aceitar que, no
-            fundo, eu também desejava conhecer o amor.
-          </p>
-          <p>
-            Eu tinha minha igreja, meus amigos, minha família, minhas rotinas, meus
-            pensamentos, meus erros, meus sonhos. Por fora parecia que tudo estava
-            bem. Mas por dentro existia um garoto tentando descobrir quem ele era.
-          </p>
-        </div>
-      </section>
+        <!-- ANTES DELE -->
+        <section class="story split reveal">
+            <div class="container split__grid">
+                <div class="story__text">
+                    <p class="eyebrow eyebrow--accent">O garoto que ainda não sabia quem seria</p>
+                    <h3>Ele era mais inseguro, tímido e fechado.</h3>
+                    <p>
+                        Tinha dificuldade para conversar com garotas, colocava-se para baixo, 
+                        tinha medo de desagradar as pessoas e dizia que gostava de ficar sozinho.
+                    </p>
+                    <p>
+                        Por fora, muitas pessoas conheciam o "Pastor". Por dentro, existia um garoto 
+                        cheio de inseguranças — um homem que ainda não tinha experimentado ser escolhido romanticamente.
+                    </p>
+                    <p class="essay">
+                        "Eu sorria, brincava e vivia minha rotina, mas por dentro carregava uma insegurança que quase ninguém via."
+                    </p>
+                </div>
+                <div class="card card--portrait">
+                    <span>Weslley</span>
+                </div>
+            </div>
+        </section>
 
-      <section class="chapter split reveal">
-        <div class="chapter-copy">
-          <p class="eyebrow accent">Antes de mim</p>
-          <h3>E você também tinha uma história antes de mim.</h3>
-          <p>
-            Você já tinha passado por várias coisas que eu não conhecia. Já tinha
-            crescido, mudado, sofrido, aprendido, se querido e se perdido em
-            alguns momentos. Você também era uma pessoa em construção, envolta em
-            certezas, dúvidas, sonhos e uma vontade profunda de ser escolhida por
-            inteiro.
-          </p>
-          <p>
-            Não era apenas sobre aparência. Era sobre ser vista, conhecida e
-            amada de verdade.
-          </p>
-        </div>
-        <div class="chapter-visual visual-1"></div>
-      </section>
+        <!-- ANTES DELA -->
+        <section class="story split reveal">
+            <div class="container split__grid split__grid--alt">
+                <div class="card card--portrait card--portrait--alt">
+                    <span>Cassiane</span>
+                </div>
+                <div class="story__text">
+                    <p class="eyebrow eyebrow--accent">A garota que queria ser escolhida</p>
+                    <h3>Ela também tinha uma história antes dele.</h3>
+                    <p>
+                        Cassiane era a filha mais nova de Elma e Pelé, irmã de Léo, Kelly e Vanilson. 
+                        Uma menina inteligente, educada, gentil e doce.
+                    </p>
+                    <p>
+                        Aos dez anos, se mudou para Goiânia. Os anos passaram e o contato entre os dois 
+                        praticamente desapareceu por alguns anos.
+                    </p>
+                    <p>
+                        O que ela queria era alguém que enxergasse mais do que sua aparência — alguém que 
+                        realmente a escolhesse pela sua essência.
+                    </p>
+                    <p class="essay">
+                        "Ela não queria simplesmente alguém. Ela queria encontrar o tipo de amor que, até então, ainda não tinha encontrado."
+                    </p>
+                </div>
+            </div>
+        </section>
 
-      <section class="chapter chapter-dark reveal">
-        <div class="section-heading center">
-          <p class="eyebrow accent">20 de dezembro</p>
-          <h2>Eu não queria ir.</h2>
-        </div>
-        <div class="story-text narrow">
-          <p>
-            Foi quando a viagem apareceu na minha vida. A mochila, o ônibus, a rua,
-            a incerteza, o medo e, ao mesmo tempo, o silêncio de uma vontade que
-            eu ainda não conseguia explicar.
-          </p>
-          <p>
-            Eu disse: “Seja feita a Tua vontade.” E fui.
-          </p>
-          <p>
-            Eu não sabia, mas estava indo ao encontro da pessoa que mudaria a
-            minha história.
-          </p>
-        </div>
-      </section>
+        <!-- 20 DE DEZEMBRO -->
+        <section class="story story--dark reveal">
+            <div class="container container--narrow">
+                <p class="eyebrow eyebrow--accent">20 de dezembro</p>
+                <h2>"Eu não queria ir."</h2>
+                <p>
+                    Weslley viajou de ônibus com sua mãe Vânia e suas irmãs Cícera e Ana Lara. 
+                    Havia tristeza, medo, incerteza e também uma pequena esperança de que aquela viagem tivesse algum propósito.
+                </p>
+                <p>
+                    Antes da viagem, houve um período de jejum e oração. E ele repetia: "Seja feita a Tua vontade."
+                </p>
+                <p class="essay">
+                    "Eu ainda não sabia, mas estava indo ao encontro de uma pessoa que mudaria completamente a minha história."
+                </p>
+            </div>
+        </section>
 
-      <section class="chapter split reveal">
-        <div class="chapter-visual visual-2"></div>
-        <div class="chapter-copy">
-          <p class="eyebrow accent">O reencontro</p>
-          <h3>“Opa, prazer. Você é a tal da Cassiane, né?”</h3>
-          <p>
-            Quatro anos depois, a pessoa que eu conheci na infância apareceu de um
-            jeito diferente. Mais crescida, mais madura, mais fascinante do que eu
-            sabia que era.
-          </p>
-          <p>
-            Foi estranho no começo. Havia conversa, curiosidade, olhares, uma
-            energia que eu ainda não sabia nomear. Mas existe uma coisa que eu
-            percebi naquele momento: ela tinha mudado, e eu também.
-          </p>
-        </div>
-      </section>
+        <!-- REENCONTRO -->
+        <section id="reencontro" class="story reveal">
+            <div class="container split__grid split__grid--alt">
+                <div class="card card--ambient">
+                    <span>Goiânia</span>
+                </div>
+                <div class="story__text">
+                    <p class="eyebrow eyebrow--accent">O reencontro</p>
+                    <h3>"Opa, prazer. Você é a tal da Cassiane, né?"</h3>
+                    <p>
+                        Depois de quatro anos, ela havia crescido. Ele também havia mudado. 
+                        A conversa inicialmente era estranha, mas naquele momento Weslley percebeu algo:
+                    </p>
+                    <p class="essay">
+                        "Ela tinha mudado."
+                    </p>
+                    <p>
+                        E, pela primeira vez, começou a enxergá-la de uma maneira diferente. 
+                        Ainda não existia namoro. Ainda não existia "nós". Mas alguma coisa havia começado.
+                    </p>
+                </div>
+            </div>
+        </section>
 
-      <section class="chapter chapter-dark reveal">
-        <div class="section-heading center">
-          <p class="eyebrow accent">31.12.2025</p>
-          <h2>Feliz Ano Novo.</h2>
-        </div>
-        <div class="story-text narrow">
-          <p>
-            E então veio o ano novo. Fogos. Terno. Azul. Abraço. Silêncio. Aquele
-            momento simples, mas impossível de esquecer.
-          </p>
-          <p>
-            Eu ainda não queria admitir, mas talvez ali alguma coisa dentro de mim
-            começou a se mexer.
-          </p>
-        </div>
-      </section>
+        <!-- RÉVEILLON -->
+        <section class="story reveal">
+            <div class="container container--narrow">
+                <p class="eyebrow eyebrow--accent">31.12.2025 → 01.01.2026</p>
+                <h2>Feliz Ano Novo.</h2>
+                <p>
+                    Weslley usava seu terno verde-grafite. Cassiane, um vestido azul. 
+                    A espera pela meia-noite, os fogos, a oração com a mãe, o abraço e o momento simples que ficou marcado.
+                </p>
+                <p class="essay">
+                    "Eu ainda não chamava aquilo de amor. Talvez nem soubesse exatamente o que estava sentindo. 
+                    Mas, olhando para trás, talvez aquele tenha sido o momento em que alguma coisa dentro de mim começou a mudar."
+                </p>
+            </div>
+        </section>
 
-      <section class="window-section reveal">
-        <div class="window-frame">
-          <div class="window-pane left-pane">
-            <span>Eu</span>
-          </div>
-          <div class="window-divider"></div>
-          <div class="window-pane right-pane">
-            <span>Você</span>
-          </div>
-        </div>
-        <div class="window-copy">
-          <p class="eyebrow accent">A janela</p>
-          <h3>Entre nós havia uma parede.</h3>
-          <p>
-            Mas também havia uma janela. Um lugar de conversa, de riso, de silêncio,
-            de nervosismo e de descoberta. A gente ainda não sabia exatamente o que
-            sentia, mas já começava a perceber que a presença um do outro era muito
-            mais forte do que qualquer distância.
-          </p>
-        </div>
-      </section>
+        <!-- A JANELA -->
+        <section class="window reveal">
+            <div class="container window__grid">
+                <div class="window__frame">
+                    <div class="window__pane window__pane--left"><span>Weslley</span></div>
+                    <div class="window__divider"></div>
+                    <div class="window__pane window__pane--right"><span>Cassiane</span></div>
+                </div>
+                <div class="window__text">
+                    <p class="eyebrow eyebrow--accent">A janela</p>
+                    <h3>Havia uma parede entre nós.</h3>
+                    <p>
+                        Mas aquela parede nunca foi suficiente para impedir que a gente se encontrasse. 
+                        Conversas, risadas, silêncios, carinho, medo e saudade antes mesmo da despedida.
+                    </p>
+                    <p>
+                        A janela foi o símbolo da primeira distância que vocês aprenderam a atravessar.
+                    </p>
+                </div>
+            </div>
+        </section>
 
-      <section class="chapter chapter-strong reveal">
-        <div class="section-heading center">
-          <p class="eyebrow accent">06.04.2026</p>
-          <h2>O dia em que a nossa história ganhou nome.</h2>
-        </div>
-        <div class="proposal-box">
-          <p class="proposal-line">“Cassiane Gomes da Silva, você aceita se tornar a minha namorada?”</p>
-          <p class="proposal-answer">“Eu aceito.”</p>
-        </div>
-      </section>
+        <!-- 06.04.2026 - PEDIDO -->
+        <section class="story story--red reveal">
+            <div class="container container--narrow text-center">
+                <p class="eyebrow eyebrow--accent">06.04.2026</p>
+                <h2>O dia em que a nossa história ganhou nome.</h2>
+                <div class="proposal">
+                    <p>"Cassiane Gomes da Silva, você aceita se tornar a minha namorada?"</p>
+                    <strong>"Eu aceito."</strong>
+                </div>
+            </div>
+        </section>
 
-      <section id="memorias" class="memories reveal">
-        <div class="section-heading">
-          <p class="eyebrow accent">Nossos dias</p>
-          <h2>Pequenas memórias, grande significado.</h2>
-        </div>
+        <!-- MEMÓRIAS -->
+        <section class="memories reveal">
+            <div class="container">
+                <p class="eyebrow eyebrow--accent">Pequenas memórias</p>
+                <h2>Momentos que ficaram porque significaram algo.</h2>
 
-        <div class="memory-grid">
-          <article class="memory-card memory-one">
-            <span>⚽</span>
-            <h3>7 a 5</h3>
-            <p>“Eu acredito no seu potencial. Eu confio em você.”</p>
-          </article>
-          <article class="memory-card memory-two">
-            <span>🍕</span>
-            <h3>Pizza</h3>
-            <p>Um momento simples que virou lembrança.</p>
-          </article>
-          <article class="memory-card memory-three">
-            <span>🥤</span>
-            <h3>Coca</h3>
-            <p>Pequeno gesto, grande intenção.</p>
-          </article>
-          <article class="memory-card memory-four">
-            <span>🎵</span>
-            <h3>Golden Brown</h3>
-            <p>Uma música, uma noite e o início da nossa vontade de ficar.</p>
-          </article>
-          <article class="memory-card memory-five">
-            <span>💪</span>
-            <h3>Academia</h3>
-            <p>Risos, nervos e coragem em cada tentativa.</p>
-          </article>
-          <article class="memory-card memory-six">
-            <span>💍</span>
-            <h3>Casamento</h3>
-            <p>Um momento de presença, cuidado e ternura.</p>
-          </article>
-        </div>
-      </section>
+                <div class="memory-grid">
+                    <article class="memory memory--one">
+                        <span>⚽</span>
+                        <h3>7 a 5</h3>
+                        <p>"Eu acredito no seu potencial. Eu confio em você."</p>
+                    </article>
+                    <article class="memory memory--two">
+                        <span>🍕</span>
+                        <h3>Pizza</h3>
+                        <p>Uma saída simples que virou lembrança.</p>
+                    </article>
+                    <article class="memory memory--three">
+                        <span>🥤</span>
+                        <h3>Coca</h3>
+                        <p>Pequeno gesto, grande intenção.</p>
+                    </article>
+                    <article class="memory memory--four">
+                        <span>🎵</span>
+                        <h3>Golden Brown</h3>
+                        <p>Uma música baixinha e um momento que ficou.</p>
+                    </article>
+                    <article class="memory memory--five">
+                        <span>💪</span>
+                        <h3>Academia</h3>
+                        <p>Brincadeiras, inseguranças e coragem.</p>
+                    </article>
+                    <article class="memory memory--six">
+                        <span>💍</span>
+                        <h3>Casamento</h3>
+                        <p>Presença, cuidado e um momento guardado.</p>
+                    </article>
+                </div>
+            </div>
+        </section>
 
-      <section class="chapter split reveal">
-        <div class="chapter-copy">
-          <p class="eyebrow accent">A distância</p>
-          <h3>Quando a presença virou voz.</h3>
-          <p>
-            A distância não fez o amor virar menos forte. Ela fez a gente descobrir
-            que, mesmo sem estar perto, é possível escolher alguém todos os dias.
-            Mensagens, ligações, noites sem dormir, medo de perder, vontade de estar
-            junto. Isso tudo nos ensinou a amar de um jeito novo.
-          </p>
-        </div>
-        <div class="chapter-visual visual-3"></div>
-      </section>
+        <!-- A DISTÂNCIA -->
+        <section id="distancia" class="story reveal">
+            <div class="container split__grid">
+                <div class="story__text">
+                    <p class="eyebrow eyebrow--accent">A distância</p>
+                    <h3>Quando a presença virou voz.</h3>
+                    <p>
+                        Mensagens, chamadas, rotinas, saudade e madrugadas. 
+                        Aprender a contar o dia mesmo sem estar junto.
+                    </p>
+                    <p class="essay">
+                        "A distância não deixou o relacionamento mais fácil, mas nos obrigou a descobrir 
+                        se aquilo que sentíamos conseguia existir mesmo sem contato físico."
+                    </p>
+                </div>
+                <div class="card card--map">
+                    <span>Goiânia ↔ Izacolândia</span>
+                </div>
+            </div>
+        </section>
 
-      <section class="counter-section reveal">
-        <div class="counter-box">
-          <p class="eyebrow accent">6 meses</p>
-          <h2 id="counter-number">0</h2>
-          <div class="counter-meta">
-            <span id="counter-days">0 dias</span>
-            <span>desde 06.04.2026</span>
-          </div>
-        </div>
-      </section>
+        <!-- NÃO FOI PERFEITO -->
+        <section class="story story--dark reveal">
+            <div class="container container--narrow">
+                <p class="eyebrow eyebrow--accent">Nós não fomos perfeitos</p>
+                <h2>Mas aprendemos.</h2>
+                <p>
+                    Nós erramos. Falamos coisas que machucaram. Tivemos ciúmes, inseguranças. 
+                    Algumas vezes pensamos se realmente conseguiríamos continuar.
+                </p>
+                <p class="essay">
+                    "A distância mostrou coisas que talvez nunca teríamos percebido estando sempre juntos. 
+                    Aprendemos a conversar. Aprendemos a entender os momentos um do outro. 
+                    Aprendemos que amar não significa nunca errar. Significa também reconhecer o erro, aprender e tentar fazer diferente."
+                </p>
+            </div>
+        </section>
 
-      <section id="carta" class="letter reveal">
-        <div class="section-heading center">
-          <p class="eyebrow accent">Carta</p>
-          <h2>Para você.</h2>
-        </div>
+        <!-- 6 MESES / CONTADOR -->
+        <section class="story story--dark reveal">
+            <div class="container container--narrow text-center">
+                <p class="eyebrow eyebrow--accent">Seis meses</p>
+                <h2>6 meses</h2>
+                <div class="counter">
+                    <div class="counter__box">
+                        <span id="counterDays">182</span>
+                        <small>dias</small>
+                    </div>
+                    <div class="counter__box">
+                        <span id="counterHours">4368</span>
+                        <small>horas</small>
+                    </div>
+                    <div class="counter__box">
+                        <span id="counterMinutes">262080</span>
+                        <small>minutos</small>
+                    </div>
+                </div>
+                <p class="essay">
+                    "Seis meses atrás, eu te chamei de minha namorada pela primeira vez. 
+                    Hoje, eu olho para tudo que aconteceu e percebo que aquele momento não foi o final de uma história. 
+                    Foi apenas o começo."
+                </p>
+            </div>
+        </section>
 
-        <div class="letter-card">
-          <p>Meu amor,</p>
-          <p>
-            Você não faz ideia do tamanho do espaço que ocupa na minha vida. Às
-            vezes eu tento imaginar como seria se a gente nunca tivesse sido
-            reencontrado, e a verdade é que eu não consigo imaginar a minha vida da
-            mesma forma sem você.
-          </p>
-          <p>
-            Você colocou cor no meu mundo, me ensinou que ser escolhido também é
-            uma parte do amor, e me mostrou que eu também mereço ser amado de um
-            jeito verdadeiro. Você me conhece com meus defeitos, me entende, me
-            acalma, me inspira e me faz querer ser cada vez melhor.
-          </p>
-          <p>
-            Obrigado por todas as memórias. Obrigado pelos dias bons e pelos
-            momentos difíceis que nos ensinaram a crescer. Obrigado por ter sido
-            presença mesmo quando a distância tentou nos separar. Obrigado por ter
-            escolhido continuar.
-          </p>
-          <p>
-            Eu não sei o que o futuro vai trazer, mas sei que eu quero continuar
-            escrevendo a nossa história com você. Feliz 6 meses, meu amor. 06.04.2026
-            → ∞.
-          </p>
-          <p class="signoff">Com todo o meu amor,<br />Weslley</p>
-        </div>
-      </section>
+        <!-- QUEM VOCÊ É -->
+        <section class="story reveal">
+            <div class="container container--narrow">
+                <p class="eyebrow eyebrow--accent">Quem você é para mim?</p>
+                <h2>Você é o que me fez enxergar mais do que eu sabia que eu era.</h2>
+                <p>
+                    Sua voz consegue me acalmar. Seu olhar consegue mudar o meu dia. 
+                    Pensar em você muitas vezes me faz acreditar que sou capaz de muito mais.
+                </p>
+                <p>
+                    Você é muito mais do que aquilo que os meus olhos conseguem enxergar. 
+                    Eu admiro a sua força, coragem, determinação e a maneira como você continua seguindo.
+                </p>
+                <p class="essay">
+                    "Você é a obra de arte mais bem feita por Deus."
+                </p>
+            </div>
+        </section>
 
-      <section class="final-scene reveal">
-        <div class="final-text">
-          <p class="eyebrow accent">Vem cá.</p>
-          <h2>Sei que isso ainda não basta para nos abraçar.</h2>
-          <p>Mas, se eu pudesse, eu estaria te abraçando agora.</p>
-          <p class="strong">FELIZ 6 MESES, MEU AMOR.</p>
-        </div>
-      </section>
+        <!-- CARTA FINAL -->
+        <section id="carta" class="letter reveal">
+            <div class="container container--letter">
+                <p class="eyebrow eyebrow--accent">Para você</p>
+                <h2>Cassiane,</h2>
+                <div class="letter__body">
+                    <p>
+                        Você não faz ideia do tamanho do espaço que ocupa na minha vida. 
+                        Às vezes eu tento imaginar como seria se a gente nunca tivesse se reencontrado. 
+                        E é estranho, porque eu consigo imaginar uma vida em que você não estivesse nela, 
+                        mas não consigo imaginar que ela seria a mesma.
+                    </p>
+                    <p>
+                        Você colocou cor no meu mundo cinzento. Trouxe luz para um lugar que muitas vezes parecia escuro. 
+                        Trouxe esperança para um coração que muitas vezes só sabia se defender.
+                    </p>
+                    <p>
+                        Você me ensinou como é ser amado por alguém que conhece meus defeitos, 
+                        e eu quero que você saiba que eu também vejo você. Vejo sua força, 
+                        sua delicadeza, seu jeito doce e a pessoa incrível que você é.
+                    </p>
+                    <p>
+                        Obrigado por tudo que você mudou em mim. Obrigado pelas memórias, pelos abraços, 
+                        pelas conversas, pelas risadas, pela janela, pelo primeiro beijo e pelo "eu aceito". 
+                        Obrigado por ter ficado mesmo quando não foi fácil.
+                    </p>
+                    <p>
+                        Eu não sei o que o futuro vai trazer, mas sei que eu quero continuar escrevendo a nossa história com você.
+                    </p>
+                    <p>
+                        Feliz 6 meses. 06.04.2026 — ∞
+                    </p>
+                    <p class="letter__sign">Com todo o meu amor,<br>Weslley</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- FINAL MESSAGE -->
+        <section class="final reveal">
+            <div class="container container--narrow text-center">
+                <p class="eyebrow eyebrow--accent">Vem cá</p>
+                <h2>Sei que isso ainda não basta para nos abraçar.</h2>
+                <p>Mas, se eu pudesse, eu estaria te abraçando agora.</p>
+                <div class="final__badge">FELIZ 6 MESES, MEU AMOR.</div>
+                <p class="final__foot">06.04.2026 — ∞</p>
+                <p style="margin-top: 3rem; font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 1.4rem;">
+                    O livro ainda não acabou. <strong style="color: var(--red-2);">Continua...</strong>
+                </p>
+            </div>
+        </section>
     </main>
 
-    <footer class="site-footer">
-      <p>Um Livro Chamado Nós</p>
-      <p>06.04.2026 — ∞</p>
+    <!-- FOOTER -->
+    <footer class="footer">
+        <p>UM LIVRO CHAMADO NÓS</p>
+        <p>06.04.2026 — ∞</p>
     </footer>
 
     <script src="script.js"></script>
-  </body>
+</body>
 </html>
-

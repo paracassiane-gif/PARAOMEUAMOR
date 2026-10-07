@@ -113,6 +113,12 @@ footer {
   font-size: 0.85rem;
 }
 
+.loader__subtitle {
+  font-size: 1.1rem;
+  color: rgba(245, 245, 242, 0.8);
+  margin-bottom: 1.5rem;
+}
+
 .eyebrow {
   font-size: 0.7rem;
   letter-spacing: 0.22rem;
@@ -191,6 +197,7 @@ footer {
 
 .nav a:hover {
   color: var(--white);
+  color: var(--red-2);
 }
 
 .hero {
@@ -389,7 +396,6 @@ footer {
   letter-spacing: 0.08em;
   text-transform: uppercase;
   color: rgba(245,245,242,0.9);
-
 }
 
 .window__pane--left {
