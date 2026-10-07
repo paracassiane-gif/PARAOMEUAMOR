@@ -1,652 +1,789 @@
-:root {
-  --bg: #0b0b0d;
-  --bg-2: #141417;
-  --panel: rgba(18, 18, 22, 0.88);
-  --panel-strong: rgba(10, 10, 12, 0.96);
-  --white: #f5f5f2;
-  --muted: #a1a1aa;
-  --red: #b00020;
-  --red-2: #e63956;
-  --line: rgba(255, 255, 255, 0.08);
-  --shadow: rgba(0, 0, 0, 0.4);
-}
-
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
-
-html {
-  scroll-behavior: smooth;
-}
-
-body {
-  background:
-    radial-gradient(circle at top, rgba(176, 0, 32, 0.18), transparent 28%),
-    linear-gradient(180deg, var(--bg) 0%, var(--bg-2) 100%);
-  color: var(--white);
-  font-family: 'Montserrat', sans-serif;
-  line-height: 1.75;
-  position: relative;
-  overflow-x: hidden;
-}
-
-img {
-  max-width: 100%;
-  display: block;
-}
-
-button,
-a {
-  transition: all 0.25s ease;
-}
-
-.noise {
-  position: fixed;
-  inset: 0;
-  background-image: radial-gradient(rgba(255,255,255,0.05) 0.7px, transparent 0.7px);
-  background-size: 12px 12px;
-  pointer-events: none;
-  opacity: 0.25;
-  z-index: 1;
-}
-
-main,
-header,
-footer {
-  position: relative;
-  z-index: 2;
-}
-
-.loader {
-  position: fixed;
-  inset: 0;
-  z-index: 999;
-  display: grid;
-  place-items: center;
-  background: rgba(11, 11, 13, 0.92);
-  backdrop-filter: blur(10px);
-  transition: opacity 0.8s ease, visibility 0.8s ease;
-}
-
-.loader.hidden {
-  opacity: 0;
-  visibility: hidden;
-}
-
-.loader__content {
-  max-width: 760px;
-  text-align: center;
-  padding: 2rem;
-}
-
-.loader__content h1,
-.hero h1,
-.story h2,
-.story h3,
-.window__text h3,
-.letter h2,
-.final h2,
-.proposal strong,
-.letter__body,
-.memory h3,
-.counter__box span {
-  font-family: 'Playfair Display', serif;
-}
-
-.loader__content h1 {
-  font-size: clamp(2.5rem, 7vw, 6rem);
-  line-height: 0.95;
-  letter-spacing: 0.06em;
-  margin-bottom: 1.25rem;
-}
-
-.loader__dates {
-  display: flex;
-  justify-content: center;
-  gap: 2rem;
-  letter-spacing: 0.24rem;
-  text-transform: uppercase;
-  color: var(--muted);
-  margin-bottom: 1.75rem;
-  font-size: 0.85rem;
-}
-
-.loader__subtitle {
-  font-size: 1.1rem;
-  color: rgba(245, 245, 242, 0.8);
-  margin-bottom: 1.5rem;
-}
-
-.eyebrow {
-  font-size: 0.7rem;
-  letter-spacing: 0.22rem;
-  text-transform: uppercase;
-  color: var(--muted);
-  margin-bottom: 1.2rem;
-}
-
-.eyebrow--accent {
-  color: var(--red-2);
-}
-
-.btn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 999px;
-  border: none;
-  text-decoration: none;
-  font-weight: 700;
-  letter-spacing: 0.16rem;
-  text-transform: uppercase;
-  cursor: pointer;
-}
-
-.btn--primary {
-  background: linear-gradient(135deg, var(--red), var(--red-2));
-  color: var(--white);
-  padding: 1rem 2.2rem;
-  box-shadow: 0 18px 30px rgba(227, 57, 86, 0.25);
-}
-
-.btn--primary:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 22px 38px rgba(227, 57, 86, 0.35);
-}
-
-.topbar {
-  position: sticky;
-  top: 0;
-  z-index: 50;
-  backdrop-filter: blur(16px);
-  background: rgba(11, 11, 13, 0.58);
-  border-bottom: 1px solid var(--line);
-}
-
-.topbar__inner {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 1rem 1.5rem;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.brand {
-  font-size: 0.72rem;
-  letter-spacing: 0.18rem;
-  text-transform: uppercase;
-  font-weight: 700;
-}
-
-.nav {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1.2rem;
-}
-
-.nav a {
-  color: rgba(245, 245, 242, 0.75);
-  text-decoration: none;
-  text-transform: uppercase;
-  letter-spacing: 0.12rem;
-  font-size: 0.7rem;
-}
-
-.nav a:hover {
-  color: var(--white);
-  color: var(--red-2);
-}
-
-.hero {
-  min-height: 100vh;
-  display: grid;
-  place-items: center;
-  padding: 6rem 1.5rem 4rem;
-  background:
-    linear-gradient(rgba(0,0,0,0.32), rgba(4,4,5,0.9)),
-    linear-gradient(135deg, rgba(176,0,32,0.12), transparent 55%),
-    #0b0b0d;
-}
-
-.hero__content {
-  max-width: 860px;
-  text-align: center;
-}
-
-.hero h1 {
-  font-size: clamp(3.5rem, 9vw, 8rem);
-  line-height: 0.95;
-  letter-spacing: 0.05em;
-  margin-bottom: 1.5rem;
-}
-
-.hero__quote {
-  max-width: 760px;
-  margin: 0 auto;
-  font-size: clamp(1.05rem, 2vw, 1.5rem);
-  line-height: 1.7;
-  color: rgba(245, 245, 242, 0.92);
-  font-family: 'Cormorant Garamond', serif;
-  font-style: italic;
-}
-
-.hero__quote--soft {
-  margin-top: 2rem;
-  color: rgba(245,245,242,0.75);
-}
-
-.hero .btn {
-  margin-top: 2.25rem;
-}
-
-.story,
-.window,
-.memories,
-.letter,
-.final {
-  padding: 7rem 1.5rem;
-}
-
-.container {
-  max-width: 1200px;
-  margin: 0 auto;
-}
-
-.container--narrow {
-  max-width: 840px;
-}
-
-.container--letter {
-  max-width: 960px;
-}
-
-.story h2,
-.window__text h3,
-.letter h2,
-.final h2 {
-  font-size: clamp(2.3rem, 5vw, 4rem);
-  line-height: 1.08;
-  margin-bottom: 1.3rem;
-}
-
-.story h3 {
-  font-size: clamp(1.8rem, 3vw, 2.8rem);
-  line-height: 1.1;
-  margin-bottom: 1rem;
-}
-
-.story p,
-.window__text p,
-.letter__body p,
-.final p {
-  color: rgba(245,245,242,0.82);
-  font-size: 1.06rem;
-  margin-bottom: 1rem;
-}
-
-.story--dark,
-.memory,
-.card,
-.letter__body,
-.proposal {
-  background: rgba(17, 17, 20, 0.8);
-  border: 1px solid var(--line);
-  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.18);
-}
-
-.story--dark {
-  background: linear-gradient(180deg, rgba(17,17,20,0.7), rgba(11,11,13,0.9));
-  border-top: 1px solid var(--line);
-  border-bottom: 1px solid var(--line);
-}
-
-.split__grid {
-  display: grid;
-  grid-template-columns: 1.15fr 0.85fr;
-  gap: 2rem;
-  align-items: center;
-}
-
-.split__grid--alt {
-  grid-template-columns: 0.85fr 1.15fr;
-}
-
-.story__text {
-  max-width: 620px;
-}
-
-.card {
-  min-height: 420px;
-  border-radius: 24px;
-  display: grid;
-  place-items: center;
-  position: relative;
-  overflow: hidden;
-}
-
-.card--dark {
-  background: linear-gradient(135deg, rgba(23,23,28,0.9), rgba(12,12,15,0.98));
-}
-
-.card--portrait {
-  background:
-    linear-gradient(140deg, rgba(18,18,21,0.2), rgba(18,18,21,0.8)),
-    radial-gradient(circle at 50% 22%, rgba(227,57,86,0.18), transparent 40%),
-    linear-gradient(180deg, #17181c, #0e0e11);
-}
-
-.card--portrait--alt {
-  background:
-    linear-gradient(140deg, rgba(27,22,24,0.2), rgba(27,22,24,0.8)),
-    radial-gradient(circle at 50% 22%, rgba(176,0,32,0.18), transparent 40%),
-    linear-gradient(180deg, #17181c, #0f0f12);
-}
-
-.card--ambient,
-.card--map {
-  background:
-    linear-gradient(180deg, rgba(15,15,17,0.26), rgba(12,12,15,0.92)),
-    linear-gradient(135deg, rgba(176,0,32,0.18), transparent 40%),
-    #0f0f12;
-}
-
-.card span {
-  position: relative;
-  z-index: 1;
-  font-size: clamp(1.5rem, 4vw, 3rem);
-  font-family: 'Cormorant Garamond', serif;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  opacity: 0.9;
-}
-
-.essay {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: clamp(1.5rem, 2vw, 2.2rem);
-  line-height: 1.45;
-  font-style: italic;
-  color: rgba(245,245,242,0.9);
-}
-
-.window__grid {
-  display: grid;
-  grid-template-columns: 1.2fr 1fr;
-  gap: 2rem;
-  align-items: center;
-}
-
-.window__frame {
-  min-height: 420px;
-  border-radius: 26px;
-  border: 1px solid var(--line);
-  background: linear-gradient(180deg, rgba(12,12,15,0.92), rgba(22,22,25,0.92));
-  display: grid;
-  grid-template-columns: 1fr 10px 1fr;
-  overflow: hidden;
-}
-
-.window__pane {
-  display: grid;
-  place-items: center;
-  font-family: 'Cormorant Garamond', serif;
-  font-size: clamp(2rem, 4vw, 3rem);
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: rgba(245,245,242,0.9);
-}
-
-.window__pane--left {
-  background: linear-gradient(180deg, rgba(19,19,22,0.9), rgba(12,12,14,0.98));
-}
-
-.window__pane--right {
-  background: linear-gradient(180deg, rgba(34,20,24,0.8), rgba(19,12,14,0.98));
-}
-
-.window__divider {
-  background: rgba(255,255,255,0.08);
-}
-
-.story--red {
-  background: radial-gradient(circle at center, rgba(227,57,86,0.12), transparent 48%), rgba(11,11,13,0.9);
-}
-
-.text-center {
-  text-align: center;
-}
-
-.proposal {
-  max-width: 900px;
-  margin: 2rem auto 0;
-  border-radius: 24px;
-  padding: 2rem 1.5rem;
-}
-
-.proposal p {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: clamp(1.6rem, 3vw, 3rem);
-  line-height: 1.3;
-  color: rgba(245,245,242,0.96);
-}
-
-.proposal strong {
-  display: block;
-  margin-top: 1.25rem;
-  color: var(--red-2);
-  font-size: clamp(2.2rem, 5vw, 4rem);
-}
-
-.memory-grid {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 1.5rem;
-  margin-top: 2.5rem;
-}
-
-.memory {
-  min-height: 260px;
-  border-radius: 22px;
-  padding: 1.5rem;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-  background-size: cover;
-  background-position: center;
-  position: relative;
-  overflow: hidden;
-}
-
-.memory::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(180deg, rgba(0,0,0,0.08), rgba(0,0,0,0.8));
-}
-
-.memory > * {
-  position: relative;
-  z-index: 1;
-}
-
-.memory span {
-  font-size: 2.2rem;
-  margin-bottom: 0.7rem;
-}
-
-.memory h3 {
-  font-size: 2rem;
-  margin-bottom: 0.4rem;
-}
-
-.memory p {
-  font-size: 0.98rem;
-  color: rgba(245,245,242,0.85);
-}
-
-.memory--one {
-  background: linear-gradient(135deg, rgba(176,0,32,0.1), transparent), #17181d;
-}
-
-.memory--two {
-  background: linear-gradient(135deg, rgba(227,57,86,0.1), transparent), #1b1a1a;
-}
-
-.memory--three {
-  background: linear-gradient(135deg, rgba(176,0,32,0.16), transparent), #202022;
-}
-
-.memory--four {
-  background: linear-gradient(135deg, rgba(227,57,86,0.12), transparent), #17181a;
-}
-
-.memory--five {
-  background: linear-gradient(135deg, rgba(176,0,32,0.2), transparent), #1a1b1f;
-}
-
-.memory--six {
-  background: linear-gradient(135deg, rgba(227,57,86,0.16), transparent), #18181a;
-}
-
-.counter {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 1rem;
-  margin: 2rem 0 1rem;
-}
-
-.counter__box {
-  min-width: 160px;
-  border-radius: 20px;
-  padding: 1.2rem 1rem;
-  border: 1px solid var(--line);
-  background: rgba(17,17,20,0.8);
-  text-align: center;
-}
-
-.counter__box span {
-  display: block;
-  font-size: clamp(2.2rem, 5vw, 4rem);
-  line-height: 1;
-}
-
-.counter__box small {
-  font-size: 0.72rem;
-  letter-spacing: 0.2rem;
-  text-transform: uppercase;
-  color: var(--muted);
-}
-
-.letter__body {
-  border-radius: 26px;
-  padding: 2rem 1.5rem;
-}
-
-.letter__body p {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: clamp(1.6rem, 2vw, 2.2rem);
-  font-style: italic;
-  line-height: 1.45;
-}
-
-.letter__sign {
-  margin-top: 2rem;
-  font-weight: 700;
-  font-style: normal;
-}
-
-.final {
-  min-height: 70vh;
-  display: grid;
-  place-items: center;
-}
-
-.final__badge {
-  display: inline-block;
-  margin-top: 1.5rem;
-  padding: 0.9rem 1.6rem;
-  border-radius: 999px;
-  border: 1px solid rgba(227,57,86,0.35);
-  background: rgba(176,0,32,0.12);
-  color: var(--red-2);
-  text-transform: uppercase;
-  letter-spacing: 0.12rem;
-  font-size: 0.75rem;
-  font-weight: 700;
-}
-
-.final__foot {
-  margin-top: 2rem;
-  font-size: 0.8rem;
-  letter-spacing: 0.18rem;
-  text-transform: uppercase;
-  color: var(--muted);
-}
-
-.footer {
-  border-top: 1px solid var(--line);
-  padding: 2rem 1.5rem 3rem;
-  display: flex;
-  justify-content: space-between;
-  gap: 1rem;
-  color: var(--muted);
-  font-size: 0.7rem;
-  letter-spacing: 0.18rem;
-  text-transform: uppercase;
-}
-
-.reveal {
-  opacity: 0;
-  transform: translateY(30px);
-  transition: opacity 0.8s ease, transform 0.8s ease;
-}
-
-.reveal.visible {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-@media (max-width: 900px) {
-  .split__grid,
-  .split__grid--alt,
-  .window__grid,
-  .memory-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .topbar__inner,
-  .footer {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-}
-
-@media (max-width: 660px) {
-  .loader__dates,
-  .nav,
-  .footer {
-    gap: 0.8rem;
-    flex-direction: column;
-    align-items: flex-start;
-  }
-
-  .loader__dates {
-    font-size: 0.7rem;
-    letter-spacing: 0.12rem;
-  }
-
-  .story,
-  .window,
-  .memories,
-  .letter,
-  .final {
-    padding: 5rem 1rem;
-  }
-
-  .counter__box {
-    min-width: calc(50% - 0.5rem);
-  }
-}
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Um Livro Chamado Nós — site comemorativo de seis meses de história, amor e memória."
+    />
+    <title>Um Livro Chamado Nós</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400;1,500&family=Montserrat:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="page-noise"></div>
+
+    <div id="loader" class="loader">
+      <div class="loader__content">
+        <p class="eyebrow">Weslley &amp; Cassiane</p>
+        <h1>UM LIVRO CHAMADO NÓS</h1>
+        <div class="loader__dates">
+          <span>06.04.2026</span>
+          <span>06.10.2026</span>
+        </div>
+        <p class="loader__subtitle">Uma história que começou antes de sabermos que era uma história.</p>
+        <button id="enterBtn" class="btn btn--primary">ABRIR</button>
+      </div>
+    </div>
+
+    <header class="site-header">
+      <div class="site-header__inner">
+        <div class="brand">UM LIVRO CHAMADO NÓS</div>
+        <nav class="nav">
+          <a href="#inicio">Início</a>
+          <a href="#antes">Antes</a>
+          <a href="#reencontro">Reencontro</a>
+          <a href="#memorias">Memórias</a>
+          <a href="#carta">Carta</a>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <section id="inicio" class="hero reveal">
+        <div class="hero__content">
+          <p class="eyebrow">06.04.2026 — 06.10.2026</p>
+          <h1>6 MESES</h1>
+          <p class="hero__quote">
+            “Seis meses parecem pouco quando comparados a uma vida inteira.<br /><br />
+            Mas, quando eu olho para tudo o que aconteceu dentro desses seis meses...<br />
+            parece que nós vivemos uma história inteira.”
+          </p>
+          <p class="hero__quote hero__quote--soft">
+            “Mas, antes de existir o nosso ‘nós’...<br />
+            existiam duas histórias.”
+          </p>
+          <a href="#antes" class="btn btn--primary">COMEÇAR</a>
+        </div>
+      </section>
+
+      <section id="antes" class="story reveal">
+        <div class="container container--narrow">
+          <p class="eyebrow eyebrow--accent">Antes de nós</p>
+          <h2>Antes de você, eu já existia.</h2>
+          <p>
+            Eu tinha minha rotina, meus sonhos, minhas inseguranças, minha fé, minha família, meus amigos e todas as coisas que faziam parte da minha vida.
+          </p>
+          <p>
+            Mas eu ainda estava tentando descobrir quem eu era.
+          </p>
+        </div>
+      </section>
+
+      <section class="story split reveal">
+        <div class="container split-layout">
+          <div class="story-copy">
+            <p class="eyebrow eyebrow--accent">O garoto que ainda não sabia quem seria</p>
+            <h3>Ele era mais inseguro, tímido e fechado.</h3>
+            <p>
+              Tinha dificuldade para conversar com garotas, colocava-se para baixo, tinha medo de desagradar as pessoas e dizia que gostava de ficar sozinho.
+            </p>
+            <p>
+              Por fora, muitas pessoas conheciam o “Pastor”. Por dentro, existia um garoto cheio de inseguranças — um homem que ainda não tinha experimentado ser escolhido romanticamente.
+            </p>
+            <p class="essay">
+              “Eu sorria, brincava e vivia minha rotina, mas por dentro carregava uma insegurança que quase ninguém via.”
+            </p>
+          </div>
+          <div class="portrait portrait--wesley">
+            <span>Weslley</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="story split reveal">
+        <div class="container split-layout split-layout--reverse">
+          <div class="portrait portrait--cassiane">
+            <span>Cassiane</span>
+          </div>
+          <div class="story-copy">
+            <p class="eyebrow eyebrow--accent">A garota que queria ser escolhida</p>
+            <h3>Ela também tinha uma história antes dele.</h3>
+            <p>
+              Cassiane era a filha mais nova de Elma e Pelé, irmã de Léo, Kelly e Vanilson. Uma menina inteligente, educada, gentil e doce.
+            </p>
+            <p>
+              Aos dez anos, se mudou para Goiânia. Os anos passaram e o contato entre os dois praticamente desapareceu por alguns anos.
+            </p>
+            <p>
+              O que ela queria era alguém que enxergasse mais do que sua aparência — alguém que realmente a escolhesse pela sua essência.
+            </p>
+            <p class="essay">
+              “Ela não queria simplesmente alguém. Ela queria encontrar o tipo de amor que, até então, ainda não tinha encontrado.”
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section class="story story--dark reveal">
+        <div class="container container--narrow">
+          <p class="eyebrow eyebrow--accent">20 de dezembro</p>
+          <h2>“Eu não queria ir.”</h2>
+          <p>
+            Weslley viajou de ônibus com sua mãe Vânia e suas irmãs Cícera e Ana Lara. Havia tristeza, medo, incerteza e também uma pequena esperança de que aquela viagem tivesse algum propósito.
+          </p>
+          <p>
+            Antes da viagem, houve um período de jejum e oração. E ele repetia: “Seja feita a Tua vontade.”
+          </p>
+          <p class="essay">
+            “Eu ainda não sabia, mas estava indo ao encontro de uma pessoa que mudaria completamente a minha história.”
+          </p>
+        </div>
+      </section>
+
+      <section id="reencontro" class="story reveal">
+        <div class="container split-layout split-layout--reverse">
+          <div class="ambient-card">
+            <span>Goiânia</span>
+          </div>
+          <div class="story-copy">
+            <p class="eyebrow eyebrow--accent">O reencontro</p>
+            <h3>“Opa, prazer. Você é a tal da Cassiane, né?”</h3>
+            <p>
+              Depois de quatro anos, ela havia crescido. Ele também havia mudado. A conversa inicialmente era estranha, mas naquele momento Weslley percebeu algo:
+            </p>
+            <p class="essay">“Ela tinha mudado.”</p>
+            <p>
+              E, pela primeira vez, começou a enxergá-la de uma maneira diferente. Ainda não existia namoro. Ainda não existia “nós”. Mas alguma coisa havia começado.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section class="story reveal">
+        <div class="container container--narrow">
+          <p class="eyebrow eyebrow--accent">31.12.2025 → 01.01.2026</p>
+          <h2>Feliz Ano Novo.</h2>
+          <p>
+            Weslley usava seu terno verde-grafite. Cassiane, um vestido azul. A espera pela meia-noite, os fogos, a oração com a mãe, o abraço e o momento simples que ficou marcado.
+          </p>
+          <p class="essay">
+            “Eu ainda não chamava aquilo de amor. Talvez nem soubesse exatamente o que estava sentindo. Mas, olhando para trás, talvez aquele tenha sido o momento em que alguma coisa dentro de mim começou a mudar.”
+          </p>
+        </div>
+      </section>
+
+      <section class="window reveal">
+        <div class="container window-layout">
+          <div class="window-frame">
+            <div class="window-pane window-pane--left"><span>Weslley</span></div>
+            <div class="window-divider"></div>
+            <div class="window-pane window-pane--right"><span>Cassiane</span></div>
+          </div>
+          <div class="window-copy">
+            <p class="eyebrow eyebrow--accent">A janela</p>
+            <h3>Havia uma parede entre nós.</h3>
+            <p>
+              Mas aquela parede nunca foi suficiente para impedir que a gente se encontrasse. Conversas, risadas, silêncios, carinho, medo e saudade antes mesmo da despedida.
+            </p>
+            <p>
+              A janela foi o símbolo da primeira distância que vocês aprenderam a atravessar.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section class="story story--red reveal">
+        <div class="container container--narrow text-center">
+          <p class="eyebrow eyebrow--accent">06.04.2026</p>
+          <h2>O dia em que a nossa história ganhou nome.</h2>
+          <div class="proposal">
+            <p>“Cassiane Gomes da Silva, você aceita se tornar a minha namorada?”</p>
+            <strong>“Eu aceito.”</strong>
+          </div>
+        </div>
+      </section>
+
+      <section id="memorias" class="memories reveal">
+        <div class="container">
+          <p class="eyebrow eyebrow--accent">Pequenas memórias</p>
+          <h2>Momentos que ficaram porque significaram algo.</h2>
+
+          <div class="memory-grid">
+            <article class="memory">
+              <span>⚽</span>
+              <h3>7 a 5</h3>
+              <p>“Eu acredito no seu potencial. Eu confio em você.”</p>
+            </article>
+            <article class="memory">
+              <span>🍕</span>
+              <h3>Pizza</h3>
+              <p>Uma saída simples que virou lembrança.</p>
+            </article>
+            <article class="memory">
+              <span>🥤</span>
+              <h3>Coca</h3>
+              <p>Pequeno gesto, grande intenção.</p>
+            </article>
+            <article class="memory">
+              <span>🎵</span>
+              <h3>Golden Brown</h3>
+              <p>Uma música baixinha e um momento que ficou.</p>
+            </article>
+            <article class="memory">
+              <span>💪</span>
+              <h3>Academia</h3>
+              <p>Brincadeiras, inseguranças e coragem.</p>
+            </article>
+            <article class="memory">
+              <span>💍</span>
+              <h3>Casamento</h3>
+              <p>Presença, cuidado e um momento guardado.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="story reveal">
+        <div class="container split-layout">
+          <div class="story-copy">
+            <p class="eyebrow eyebrow--accent">A distância</p>
+            <h3>Quando a presença virou voz.</h3>
+            <p>
+              Mensagens, chamadas, rotinas, saudade e madrugadas. Aprender a contar o dia mesmo sem estar junto.
+            </p>
+            <p class="essay">
+              “A distância não deixou o relacionamento mais fácil, mas nos obrigou a descobrir se aquilo que sentíamos conseguia existir mesmo sem contato físico.”
+            </p>
+          </div>
+          <div class="map-card">
+            <span>Goiânia ↔ Izacolândia</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="story story--dark reveal">
+        <div class="container container--narrow">
+          <p class="eyebrow eyebrow--accent">Nós não fomos perfeitos</p>
+          <h2>Mas aprendemos.</h2>
+          <p>
+            Nós erramos. Falamos coisas que machucaram. Tivemos ciúmes, inseguranças. Algumas vezes pensamos se realmente conseguiríamos continuar.
+          </p>
+          <p class="essay">
+            “A distância mostrou coisas que talvez nunca teríamos percebido estando sempre juntos. Aprendemos a conversar. Aprendemos a entender os momentos um do outro. Aprendemos que amar não significa nunca errar. Significa também reconhecer o erro, aprender e tentar fazer diferente.”
+          </p>
+        </div>
+      </section>
+
+      <section class="story story--dark reveal">
+        <div class="container container--narrow text-center">
+          <p class="eyebrow eyebrow--accent">Seis meses</p>
+          <h2>6 MESES</h2>
+          <div class="counter">
+            <div class="counter__box">
+              <span id="counterDays">182</span>
+              <small>dias</small>
+            </div>
+            <div class="counter__box">
+              <span id="counterHours">4368</span>
+              <small>horas</small>
+            </div>
+            <div class="counter__box">
+              <span id="counterMinutes">262080</span>
+              <small>minutos</small>
+            </div>
+          </div>
+          <p class="essay">
+            “Seis meses atrás, eu te chamei de minha namorada pela primeira vez. Hoje, eu olho para tudo que aconteceu e percebo que aquele momento não foi o final de uma história. Foi apenas o começo.”
+          </p>
+        </div>
+      </section>
+
+      <section class="story reveal">
+        <div class="container container--narrow">
+          <p class="eyebrow eyebrow--accent">Quem você é para mim?</p>
+          <h2>Você é o que me fez enxergar mais do que eu sabia que eu era.</h2>
+          <p>
+            Sua voz consegue me acalmar. Seu olhar consegue mudar o meu dia. Pensar em você muitas vezes me faz acreditar que sou capaz de muito mais.
+          </p>
+          <p>
+            Você é muito mais do que aquilo que os meus olhos conseguem enxergar. Eu admiro a sua força, coragem, determinação e a maneira como você continua seguindo.
+          </p>
+          <p class="essay">
+            “Você é a obra de arte mais bem feita por Deus.”
+          </p>
+        </div>
+      </section>
+
+      <section id="carta" class="letter reveal">
+        <div class="container container--letter">
+          <p class="eyebrow eyebrow--accent">Para você</p>
+          <h2>Cassiane,</h2>
+          <div class="letter__body">
+            <p>
+              Você não faz ideia do tamanho do espaço que ocupa na minha vida. Às vezes eu tento imaginar como seria se a gente nunca tivesse se reencontrado. E é estranho, porque eu consigo imaginar uma vida em que você não estivesse nela, mas não consigo imaginar que ela seria a mesma.
+            </p>
+            <p>
+              Você colocou cor no meu mundo cinzento. Trouxe luz para um lugar que muitas vezes parecia escuro. Trouxe esperança para um coração que muitas vezes só sabia se defender.
+            </p>
+            <p>
+              Você me ensinou como é ser amado por alguém que conhece meus defeitos, e eu quero que você saiba que eu também vejo você. Vejo sua força, sua delicadeza, seu jeito doce e a pessoa incrível que você é.
+            </p>
+            <p>
+              Obrigado por tudo que você mudou em mim. Obrigado pelas memórias, pelos abraços, pelas conversas, pelas risadas, pela janela, pelo primeiro beijo e pelo "eu aceito". Obrigado por ter ficado mesmo quando não foi fácil.
+            </p>
+            <p>
+              Eu não sei o que o futuro vai trazer, mas sei que eu quero continuar escrevendo a nossa história com você.
+            </p>
+            <p>
+              Feliz 6 meses. 06.04.2026 — ∞
+            </p>
+            <p class="letter__sign">Com todo o meu amor,<br />Weslley</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="final reveal">
+        <div class="container container--narrow text-center">
+          <p class="eyebrow eyebrow--accent">Vem cá</p>
+          <h2>Sei que isso ainda não basta para nos abraçar.</h2>
+          <p>Mas, se eu pudesse, eu estaria te abraçando agora.</p>
+          <div class="final__badge">FELIZ 6 MESES, MEU AMOR.</div>
+          <p class="final__foot">06.04.2026 — ∞</p>
+          <p class="final__continuo">O livro ainda não acabou. Continua...</p>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <p>UM LIVRO CHAMADO NÓS</p>
+      <p>06.04.2026 — ∞</p>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
